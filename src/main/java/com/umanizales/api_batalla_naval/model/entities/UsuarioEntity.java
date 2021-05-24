@@ -8,7 +8,7 @@ public class UsuarioEntity {
     private int id;
     private String correo;
     private String contrasenia;
-    private TipoUsuarioEntity tipoUsuario;
+    private TipoUsuarioEntity tipoUsuarioEntity;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -67,11 +67,11 @@ public class UsuarioEntity {
 
     @ManyToOne
     @JoinColumn(name = "tipo_usuario", referencedColumnName = "codigo", nullable = false)
-    public TipoUsuarioEntity getTipoUsuario() {
-        return tipoUsuario;
+    public TipoUsuarioEntity getTipoUsuarioEntity() {
+        return tipoUsuarioEntity;
     }
 
-    public void setTipoUsuario(TipoUsuarioEntity tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setTipoUsuarioEntity(TipoUsuarioEntity tipoUsuarioEntity) {
+        this.tipoUsuarioEntity = tipoUsuarioEntity;
     }
 }
