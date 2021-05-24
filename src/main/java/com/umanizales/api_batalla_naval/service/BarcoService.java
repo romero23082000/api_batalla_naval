@@ -1,32 +1,32 @@
 package com.umanizales.api_batalla_naval.service;
 
 import com.umanizales.api_batalla_naval.model.dto.RespuestaDTO;
+import com.umanizales.api_batalla_naval.model.entities.Barco;
 import com.umanizales.api_batalla_naval.model.entities.UsuarioEntity;
-import com.umanizales.api_batalla_naval.repository.UserRepository;
+import com.umanizales.api_batalla_naval.repository.BarcoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
-    private UserRepository userRepository;
-
+public class BarcoService {
+    private BarcoRepository barcoRepository;
     @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public BarcoService(BarcoRepository barcoRepository) {
+        this.barcoRepository = barcoRepository;
     }
 
     public ResponseEntity<Object> findAll(){
         return new ResponseEntity<>(new RespuestaDTO("EXITOSO",
-                userRepository.findAll(), null), HttpStatus.OK);
+                barcoRepository.findAll(), null), HttpStatus.OK);
     }
-    public ResponseEntity<Object> createUser(UsuarioEntity usuarioEntity)
+    public ResponseEntity<Object> createbarco(Barco barco)
     {
         try {
-            UsuarioEntity userSave = userRepository.save(usuarioEntity);
+            Barco barcoSave = barcoRepository.save(barco);
             return new ResponseEntity<>(new RespuestaDTO("EXITOSO",
-                    userSave, null), HttpStatus.OK);
+                    barcoSave, null), HttpStatus.OK);
         }
         catch (Exception ex)
         {
