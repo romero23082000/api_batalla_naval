@@ -25,5 +25,10 @@ public class UserController {
     public @ResponseBody ResponseEntity<Object> createUser(@RequestBody UsuarioEntity usuarioEntity){
         return userService.createUser(usuarioEntity);
     }
+    @GetMapping(path = "{codigo}")
+    public @ResponseBody ResponseEntity<Object>findUserByCodigo(@PathVariable("codigo") short codigo){
+        return userService.findUserByRol(codigo);
+    }
+
 
 }

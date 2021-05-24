@@ -24,14 +24,23 @@ public class BarcoService {
     public ResponseEntity<Object> createbarco(Barco barco)
     {
         try {
-            Barco barcoSave = barcoRepository.save(barco);
-            return new ResponseEntity<>(new RespuestaDTO("EXITOSO",
-                    barcoSave, null), HttpStatus.OK);
+            //Consultar si ya existe un barco con ese numero de casillas
+            Barco barcoConsulta = barcoRepository.encontrarBarcoPorNumeroDeCasillas(barco.getNumeroCasillas());
+            if (barcoConsulta == null ){
+                Barco barcoSave = barcoRepository.save(barco);
+                return new ResponseEntity<>(new RespuestaDTO("EXITOSO",
+                        barcoSave, null), HttpStatus.OK);
+            }
+            else
+            {
+                return new ResponseEntity<>(new RespuestaDTO("ERROR",
+                        null, "Ya existe un barco con ese numero de casillas"), HttpStatus.CONFLICT);
+            }
         }
         catch (Exception ex)
         {
             return new ResponseEntity<>(new RespuestaDTO("ERROR",
-                    null, "Ocurrio un error con el usuario"), HttpStatus.CONFLICT);
+                    null, "Ocurrio un error con el barco"), HttpStatus.CONFLICT);
         }
     }
 }

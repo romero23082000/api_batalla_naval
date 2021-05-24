@@ -34,4 +34,8 @@ public class UserService {
                     null, "Ocurrio un error con el usuario"), HttpStatus.CONFLICT);
         }
     }
+    public ResponseEntity<Object> findUserByRol(short codigo){
+        return new ResponseEntity<>(new RespuestaDTO("EXITOSO",
+                userRepository.obtenerUsuariosPorRol(codigo), null), HttpStatus.OK);
+    }
 }
