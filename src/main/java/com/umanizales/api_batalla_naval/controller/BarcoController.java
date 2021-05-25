@@ -18,13 +18,25 @@ public class BarcoController {
         this.barcoService = barcoService;
     }
 
+    //Controlador para mostrar todos los barcos creados
     @GetMapping
     public @ResponseBody ResponseEntity<Object> findAll(){
         return barcoService.findAll();
     }
+    //Controlador para crear barcos
     @PostMapping
     public @ResponseBody ResponseEntity<Object> createbarco(@RequestBody Barco barco){
         return barcoService.createbarco(barco);
+    }
+    //Controlador para actualizar un barco por id
+    @PutMapping
+    public @ResponseBody ResponseEntity<Object> updateBarco(@RequestBody Barco barco){
+        return barcoService.updateBarco(barco);
+    }
+    //controlador para borrar un barco por id
+    @DeleteMapping(path = "/{id}")
+    public @ResponseBody ResponseEntity<Object> deleteBarco(@PathVariable("id") int id){
+        return barcoService.deleteBarco(id);
     }
 
 }
