@@ -35,4 +35,37 @@ public class DistribuicionBarcoDTO implements Serializable {
             }
         }
     }
+
+    public boolean validarExistenciaCoordenada(CoordenadaDTO coordenadaDTO){
+    if (casillas != null){
+        for (CoordenadaDTO coord : casillas){
+            if (coord.equals(casillas)){
+                return true;
+            }
+        }
+    }
+    return false;
+    }
+
+    public CoordenadaDTO[] sugerirUbicacion(int x, int y, byte orientacion){
+        CoordenadaDTO[] casillasSugeridas = new CoordenadaDTO[barco.getNumeroCasillas()];
+        for (int i = 0; i<casillasSugeridas.length; i++)
+        {
+            //TODO verificar que la coordenada este libre
+            casillas[i]=new CoordenadaDTO(x,y,false);
+            if (orientacion==1)//horizontal
+            {
+                x++;
+            }
+            else //vertical
+            {
+                y++;
+            }
+        }
+        return casillasSugeridas;
+    }
+    public void definirUbicacion(CoordenadaDTO[] coordenadas){
+            this.casillas = coordenadas;
+    }
+
 }

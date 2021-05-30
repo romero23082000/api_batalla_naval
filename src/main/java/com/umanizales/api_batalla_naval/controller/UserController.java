@@ -1,6 +1,7 @@
 package com.umanizales.api_batalla_naval.controller;
 
 import com.umanizales.api_batalla_naval.model.entities.UsuarioEntity;
+import com.umanizales.api_batalla_naval.service.PlayerService;
 import com.umanizales.api_batalla_naval.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +13,15 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class UserController {
     private UserService userService;
-    @Autowired
-    public UserController(UserService userService) {
+    private PlayerService playerService;
+
+    public UserController(UserService userService, PlayerService playerService) {
         this.userService = userService;
+        this.playerService = playerService;
     }
+
+    @Autowired
+
 
     @GetMapping
     public @ResponseBody ResponseEntity<Object> findAll(){
@@ -26,9 +32,8 @@ public class UserController {
         return userService.createUser(usuarioEntity);
     }
     @GetMapping(path = "{codigo}")
-    public @ResponseBody ResponseEntity<Object>findUserByCodigo(@PathVariable("codigo") short codigo){
+    public @ResponseBody ResponseEntity<Object>findUserByRol(@PathVariable("codigo") short codigo){
         return userService.findUserByRol(codigo);
     }
-
 
 }
