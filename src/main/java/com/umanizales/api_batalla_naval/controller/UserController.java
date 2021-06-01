@@ -13,15 +13,12 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class UserController {
     private UserService userService;
-    private PlayerService playerService;
-
-    public UserController(UserService userService, PlayerService playerService) {
-        this.userService = userService;
-        this.playerService = playerService;
-    }
 
     @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
 
+    }
 
     @GetMapping
     public @ResponseBody ResponseEntity<Object> findAll(){
