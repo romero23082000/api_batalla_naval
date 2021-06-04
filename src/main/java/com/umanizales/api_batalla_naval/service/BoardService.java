@@ -24,7 +24,7 @@ public class BoardService {
         if(tablero.getNumElementos() < 0)
         {
             return new ResponseEntity<>(
-                    new RespuestaDTO("numero de elementos negativo", null, null), HttpStatus.CREATED);
+                    new RespuestaDTO(Messages.ERROR_ELEMENTS_NEGATIVE, null, null), HttpStatus.CONFLICT);
         }
         else{
             if (tablero.getNumElementos() <= 9) {

@@ -16,13 +16,13 @@ public class TypeUserController {
     public TypeUserController(TypeUserService typeUserService) {
         this.typeUserService = typeUserService;
     }
-    //Controlador para mostrar todos los barcos creados
+    //Controlador para mostrar todos los tipos de usuarios
     @GetMapping
     public @ResponseBody
     ResponseEntity<Object> findAll(){
         return typeUserService.findAll();
     }
-    //Controlador para crear barcos
+    //Controlador para crear tipos de usuario
     @PostMapping
     public @ResponseBody ResponseEntity<Object> createTypeUser(@RequestBody TipoUsuarioEntity tipoUsuarioEntity){
         return typeUserService.createTypeUser(tipoUsuarioEntity);

@@ -19,15 +19,17 @@ public class UserController {
         this.userService = userService;
 
     }
-
+    //Muestra todos los usuarios
     @GetMapping
     public @ResponseBody ResponseEntity<Object> findAll(){
         return userService.findAll();
     }
+    //Permite mostrar
     @PostMapping
     public @ResponseBody ResponseEntity<Object> createUser(@RequestBody UsuarioEntity usuarioEntity){
         return userService.createUser(usuarioEntity);
     }
+    //Permite encontrar los roles de usuario
     @GetMapping(path = "{codigo}")
     public @ResponseBody ResponseEntity<Object>findUserByRol(@PathVariable("codigo") short codigo){
         return userService.findUserByRol(codigo);

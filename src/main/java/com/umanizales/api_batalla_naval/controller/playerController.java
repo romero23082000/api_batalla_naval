@@ -16,11 +16,12 @@ public class playerController {
         this.playerService = playerService;
     }
 
+    //muestra el tipo de usuario por codigo
     @GetMapping(path = "userByCodigo/{codigo}")
     public @ResponseBody ResponseEntity<Object> getUserByCodigo(@PathVariable("codigo") short codigo){
         return playerService.findUserByCodigo(codigo);
     }
-
+    //Busca el usuario por correo y dice si es administrador o no
     @GetMapping(path = "userByCorreo{correo}")
     public @ResponseBody ResponseEntity<Object> findUserByCorreo(@PathVariable("correo") String correo){
         return playerService.getUserByCorreo(correo);

@@ -15,10 +15,12 @@ public class ListaDEController {
     public ListaDEController(ListaDEService listaDEService) {
         this.listaDEService = listaDEService;
     }
+    //Muestra la lista con la distribucion de barcos
     @GetMapping
     public @ResponseBody ResponseEntity<Object> visualizarLista(){
         return listaDEService.visualizarListaDE();
     }
+    //permite agregar los barcos a una lista doblemente enlazada
     @PostMapping
     public @ResponseBody ResponseEntity<Object> adicionarDistribuicionBarco(@RequestBody Barco barco){
         DistribuicionBarcoDTO distribucion = new DistribuicionBarcoDTO(barco);

@@ -34,9 +34,6 @@ public class ListaDE implements Serializable {
         }
         count++;
     }
-    public void adicionarNodoAlInicio(Object dato){
-
-    }
 
     public ListaDE clonarLista(){
         ListaDE listaCopia = new ListaDE();
@@ -47,7 +44,7 @@ public class ListaDE implements Serializable {
         }
         return listaCopia;
     }
-
+    //metodo para validar la existencia de coordenadas
     public boolean validarExistenciaCoordenadas(CoordenadaDTO[] coordenadaDTO){
         if (cabeza != null)
         {
@@ -66,7 +63,7 @@ public class ListaDE implements Serializable {
         }
         return false;
     }
-
+    //Metodo para encontrar barco por codigo
     public Object EncontrarDatoPorCodigo(int id){
         if (cabeza != null){
             NodoDE temp=cabeza;

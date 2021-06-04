@@ -1,5 +1,7 @@
 package com.umanizales.api_batalla_naval.model.utilities;
 
+import javax.swing.plaf.PanelUI;
+
 public final class Messages
 {
     public static final String DATA_NOT_FOUND="Dato no encontrado";
@@ -9,6 +11,7 @@ public final class Messages
     public static final String ERROR_PERSISTENCE_SAVE="Ha ocurrido un error al intentar guardar en base de datos";
     public static final String MESSAGE_ELEMENTS_NEGATIVE="El numero de elemntos no puede ser negativo";
     public static final String ERROR_ELEMENTS_NEGATIVE="Numero de elementos negativos";
+    public static final String BOARD_ADITION = "Barco adicionado correctamente";
 
     public static final float PERCENTAGE_ERROR_GAME= 0.3f;
     public static final String MESSAGE_ROWS_COLS_POSITIVE="Error en los datos suministrados";
@@ -34,6 +37,18 @@ public final class Messages
 
     public static final String MESSAGE_LOST_THE_GAME="Has perdido el juego";
     public static final String ERROR_LOST_THE_GAME="Has superado el numero de intentos";
+
+    public static final String MESSAGE_NUM_BOX_REPEAT = "El numero de casillas no esta diponible";
+    public static final String ERROR_NUM_BOX_REPEAT = "Ya existe un numero con el barco de casillas";
+
+    public static final String MESSAGE_BOARD_NOT_DELETE = "El barco no se borro";
+    public static final String ERROR_BOARD_NOT_DELETE = "Barco no borrado";
+
+    public static final String MESSAGE_USER_EXIST = "El usuario no es admin o no existe";
+    public static final String ERROR_USER_EXIST = "Error con el correo suministrado";
+
+    public static final String MESSAGE_USER_ADMIN = "El usuario es administrador";
+
 
 
     public static final String MESSAGE_SHOT_FAILED="Has fallado el tiro";

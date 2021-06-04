@@ -1,8 +1,10 @@
 package com.umanizales.api_batalla_naval.service;
 
+import antlr.debug.MessageAdapter;
 import com.umanizales.api_batalla_naval.model.dto.RespuestaDTO;
 import com.umanizales.api_batalla_naval.model.entities.TipoUsuarioEntity;
 import com.umanizales.api_batalla_naval.model.entities.UsuarioEntity;
+import com.umanizales.api_batalla_naval.model.utilities.Messages;
 import com.umanizales.api_batalla_naval.repository.TypeUserRepository;
 import com.umanizales.api_batalla_naval.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,20 +25,20 @@ public class PlayerService {
         UsuarioEntity usuarioEntity = userRepository.obtenerUsuariosPorCorreo(correo);
         if (usuarioEntity == null)
         {
-            return new ResponseEntity<>(new RespuestaDTO("Usuario no encontrado",
-                    null, "no existe el usuario"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new RespuestaDTO(Messages.MESSAGE_USER_EXIST,
+                    null, Messages.ERROR_USER_EXIST), HttpStatus.NOT_FOUND);
         }
         else
         {
             if (usuarioEntity.getTipoUsuarioEntity().getDescripcion().equals("Administrador"))
             {
-                return new ResponseEntity<>(new RespuestaDTO("Eres administrador",
+                return new ResponseEntity<>(new RespuestaDTO(Messages.MESSAGE_USER_ADMIN,
                         userRepository.obtenerUsuariosPorCorreo(correo), null), HttpStatus.OK);
             }
             else
             {
-                return new ResponseEntity<>(new RespuestaDTO("No es administrador",
-                        null, "no existe el usuario"), HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(new RespuestaDTO(Messages.MESSAGE_USER_EXIST,
+                        null, Messages.ERROR_USER_EXIST), HttpStatus.NOT_FOUND);
             }
 
         }
@@ -44,7 +46,7 @@ public class PlayerService {
     }
 
     public ResponseEntity<Object> findUserByCodigo(short codigo){
-        return new ResponseEntity<>(new RespuestaDTO("EXITOSO",
+        return new ResponseEntity<>(new RespuestaDTO(Messages.SUCCESSFUL,
                 userRepository.obtenerUsuariosPorRol(codigo), null), HttpStatus.OK);
     }
 }
