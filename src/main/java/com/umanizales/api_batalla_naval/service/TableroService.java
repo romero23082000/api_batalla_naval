@@ -1,10 +1,8 @@
 package com.umanizales.api_batalla_naval.service;
 
 import com.umanizales.api_batalla_naval.model.ListaDE;
-import com.umanizales.api_batalla_naval.model.dto.CasillaBarco;
-import com.umanizales.api_batalla_naval.model.dto.CoordenadaDTO;
-import com.umanizales.api_batalla_naval.model.dto.RespuestaDTO;
-import com.umanizales.api_batalla_naval.model.dto.SelecTablero;
+import com.umanizales.api_batalla_naval.model.dto.*;
+import com.umanizales.api_batalla_naval.model.entities.Barco;
 import com.umanizales.api_batalla_naval.model.entities.UsuarioEntity;
 import com.umanizales.api_batalla_naval.model.utilities.Messages;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +23,9 @@ public class TableroService
     private List<CoordenadaDTO> disparosRecibidos;
     private CasillaBarco[][] tableroBarco;
     private SelecTablero selecTablero;
+    private DistribuicionBarcoDTO distribuicionBarcoDTO;
+    private ListaDEService listaDEService;
+    private PlayerService playerService;
 
 
 

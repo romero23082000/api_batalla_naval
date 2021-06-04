@@ -11,6 +11,5 @@ import java.io.Serializable;
 @Getter
 @AllArgsConstructor
 public class SelecTablero implements Serializable {
-    private Barco barco;
     private int numElementos;
 }

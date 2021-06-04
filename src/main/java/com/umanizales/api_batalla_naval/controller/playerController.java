@@ -23,7 +23,7 @@ public class playerController {
 
     @GetMapping(path = "userByCorreo{correo}")
     public @ResponseBody ResponseEntity<Object> findUserByCorreo(@PathVariable("correo") String correo){
-        return playerService.GetUserByCorreo(correo);
+        return playerService.getUserByCorreo(correo);
     }
 
 }

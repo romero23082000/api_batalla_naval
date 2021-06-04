@@ -11,5 +11,5 @@ public interface UserRepository extends CrudRepository<UsuarioEntity,Integer>{
     List<UsuarioEntity>obtenerUsuariosPorRol(short codigo);
 
     @Query("SELECT usuario FROM UsuarioEntity usuario WHERE usuario.correo=?1")
-    List<UsuarioEntity>obtenerUsuariosPorCorreo(String correo);
+    UsuarioEntity obtenerUsuariosPorCorreo(String correo);
 }
