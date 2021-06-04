@@ -4,6 +4,7 @@ import com.umanizales.api_batalla_naval.model.ListaDE;
 import com.umanizales.api_batalla_naval.model.NodoDE;
 import com.umanizales.api_batalla_naval.model.dto.DistribuicionBarcoDTO;
 import com.umanizales.api_batalla_naval.model.dto.RespuestaDTO;
+import com.umanizales.api_batalla_naval.model.entities.Barco;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,8 @@ public class ListaDEService {
             temp = temp.getSiguiente();
         }
         return listado;
+    }
+    public Barco encontrarBarcoCodigo(int id){
+        return (Barco) this.listaBarcos.EncontrarDatoPorCodigo(id);
     }
 }

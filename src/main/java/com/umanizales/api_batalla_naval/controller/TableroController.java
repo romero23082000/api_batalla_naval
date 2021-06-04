@@ -1,10 +1,8 @@
 package com.umanizales.api_batalla_naval.controller;
 
-import com.umanizales.api_batalla_naval.model.dto.CoordenadaDTO;
 import com.umanizales.api_batalla_naval.model.dto.SelecTablero;
 import com.umanizales.api_batalla_naval.service.TableroService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,4 +22,6 @@ public class TableroController {
     public ResponseEntity<Object> visualizarTablero(){
         return tableroService.seeTablero();
     }
+
+
 }
