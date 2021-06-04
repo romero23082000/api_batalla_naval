@@ -62,8 +62,8 @@ public class BarcoService {
                 Barco barcoAlmacenado=barcoRepository.save(barco);
                 if(barco.getNumeroCasillas() < 0)
                 {
-                    return new ResponseEntity<>(new RespuestaDTO(Messages.MESSAGE_NUM_BOX_REPEAT,
-                            null, Messages.ERROR_NUM_BOX_REPEAT), HttpStatus.CONFLICT);
+                    return new ResponseEntity<>(new RespuestaDTO(Messages.MESSAGE_BOXES_NEGATIVE,
+                            null, Messages.ERROR_BOXES_NEGATIVE), HttpStatus.CONFLICT);
                 }
                 return new ResponseEntity<>(
                         new RespuestaDTO(Messages.SUCCESSFUL,barcoAlmacenado

@@ -41,7 +41,7 @@ public final class Messages
     public static final String MESSAGE_NUM_BOX_REPEAT = "El numero de casillas no esta diponible";
     public static final String ERROR_NUM_BOX_REPEAT = "Ya existe un numero con el barco de casillas";
 
-    public static final String MESSAGE_BOARD_NOT_DELETE = "El barco no se borro";
+    public static final String MESSAGE_BOARD_NOT_DELETE = "El barco no se encuentra en la base de datos";
     public static final String ERROR_BOARD_NOT_DELETE = "Barco no borrado";
 
     public static final String MESSAGE_USER_EXIST = "El usuario no es admin o no existe";
