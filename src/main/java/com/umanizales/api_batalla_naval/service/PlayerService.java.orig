@@ -4,7 +4,10 @@ import antlr.debug.MessageAdapter;
 import com.umanizales.api_batalla_naval.model.dto.RespuestaDTO;
 import com.umanizales.api_batalla_naval.model.entities.TipoUsuarioEntity;
 import com.umanizales.api_batalla_naval.model.entities.UsuarioEntity;
+<<<<<<< HEAD
 import com.umanizales.api_batalla_naval.model.utilities.Messages;
+=======
+>>>>>>> 471346e875a871d708ec6b20a018dd6ca094c1b1
 import com.umanizales.api_batalla_naval.repository.TypeUserRepository;
 import com.umanizales.api_batalla_naval.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,29 +28,34 @@ public class PlayerService {
         UsuarioEntity usuarioEntity = userRepository.obtenerUsuariosPorCorreo(correo);
         if (usuarioEntity == null)
         {
+<<<<<<< HEAD
             return new ResponseEntity<>(new RespuestaDTO(Messages.MESSAGE_USER_EXIST,
                     null, Messages.ERROR_USER_EXIST), HttpStatus.NOT_FOUND);
+=======
+            return new ResponseEntity<>(new RespuestaDTO("Usuario no encontrado",
+                    null, "no existe el usuario"), HttpStatus.NOT_FOUND);
+>>>>>>> 471346e875a871d708ec6b20a018dd6ca094c1b1
         }
         else
         {
             if (usuarioEntity.getTipoUsuarioEntity().getDescripcion().equals("Administrador"))
             {
+<<<<<<< HEAD
                 return new ResponseEntity<>(new RespuestaDTO(Messages.MESSAGE_USER_ADMIN,
+=======
+                return new ResponseEntity<>(new RespuestaDTO("Eres administrador",
+>>>>>>> 471346e875a871d708ec6b20a018dd6ca094c1b1
                         userRepository.obtenerUsuariosPorCorreo(correo), null), HttpStatus.OK);
             }
             else
             {
-                return new ResponseEntity<>(new RespuestaDTO("No es administrador",
-                        null, "no existe el usuario"), HttpStatus.NOT_FOUND);
-            }
-
-        }
-
-            }
-            else
-            {
+<<<<<<< HEAD
                 return new ResponseEntity<>(new RespuestaDTO(Messages.MESSAGE_USER_EXIST,
                         null, Messages.ERROR_USER_EXIST), HttpStatus.NOT_FOUND);
+=======
+                return new ResponseEntity<>(new RespuestaDTO("No es administrador",
+                        null, "no existe el usuario"), HttpStatus.NOT_FOUND);
+>>>>>>> 471346e875a871d708ec6b20a018dd6ca094c1b1
             }
 
         }

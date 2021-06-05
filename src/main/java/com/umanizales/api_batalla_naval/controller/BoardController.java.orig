@@ -1,0 +1,42 @@
+package com.umanizales.api_batalla_naval.controller;
+
+import com.umanizales.api_batalla_naval.model.Tablero;
+import com.umanizales.api_batalla_naval.model.dto.SelecTablero;
+import com.umanizales.api_batalla_naval.service.BoardService;
+<<<<<<< HEAD
+import org.springframework.beans.factory.annotation.Autowired;
+=======
+>>>>>>> 471346e875a871d708ec6b20a018dd6ca094c1b1
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping(path = "BoardGame")
+public class BoardController {
+    private BoardService boardService;
+
+<<<<<<< HEAD
+    @Autowired
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
+
+    //Controlador para agregar el numero de elementos y iniciar el tablero
+=======
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
+>>>>>>> 471346e875a871d708ec6b20a018dd6ca094c1b1
+    @PostMapping(path = "iniciar_tablero")
+    public ResponseEntity<Object> crearTablero(@RequestBody Tablero tablero){
+        return boardService.createBoard(tablero.getNumElementos());
+    }
+<<<<<<< HEAD
+    //muestra el tablero y columnas creadas
+=======
+>>>>>>> 471346e875a871d708ec6b20a018dd6ca094c1b1
+    @GetMapping(path = "ver_tablero")
+    public ResponseEntity<Object> visualizarTablero(){
+        return boardService.seeBoard();
+    }
+}

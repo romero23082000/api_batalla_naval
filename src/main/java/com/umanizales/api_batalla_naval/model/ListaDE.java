@@ -77,4 +77,17 @@ public class ListaDE implements Serializable {
         return null;
     }
 
+    public Object EncontrarDatoPorCodigo(int id){
+        if (cabeza != null){
+            NodoDE temp=cabeza;
+            while (temp!=null){
+                if (temp.getDato().equals(id)){
+                    return temp.getDato();
+                }
+                temp = temp.getSiguiente();
+            }
+        }
+        return null;
+    }
+
 }
